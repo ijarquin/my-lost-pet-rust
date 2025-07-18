@@ -6,6 +6,10 @@ enum Route {
     #[layout(Navbar)]
     #[route("/")]
     Home {},
+    #[route("/missing-pets")]
+    MissingPets {},
+    #[route("/adoption-pets")]
+    AdoptionPets {},
     #[route("/blog/:id")]
     Blog { id: i32 },
 }
@@ -55,6 +59,54 @@ fn Home() -> Element {
     }
 }
 
+#[component]
+fn MissingPets() -> Element {
+    rsx! {
+        div {
+            id: "missing-pets",
+
+            // Content
+            h1 { "Missing Pets" }
+            p { "This page is a placeholder for missing pets. You can navigate to the blog or home page." }
+
+            // Navigation links
+            Link {
+                to: Route::Home {},
+                "Go to Home"
+            }
+            span { " | " }
+            Link {
+                to: Route::Blog { id: 1 },
+                "Go to Blog"
+            }
+        }
+    }
+}
+
+#[component]
+fn AdoptionPets() -> Element {
+    rsx! {
+        div {
+            id: "adoption-pets",
+
+            // Content
+            h1 { "Adoption Pets" }
+            p { "This page is a placeholder for adoption pets. You can navigate to the blog or home page." }
+
+            // Navigation links
+            Link {
+                to: Route::Home {},
+                "Go to Home"
+            }
+            span { " | " }
+            Link {
+                to: Route::Blog { id: 1 },
+                "Go to Blog"
+            }
+        }
+    }
+}
+
 /// Blog page
 #[component]
 pub fn Blog(id: i32) -> Element {
@@ -91,8 +143,12 @@ fn Navbar() -> Element {
                 "Home"
             }
             Link {
-                to: Route::Blog { id: 1 },
-                "Blog"
+                to: Route::MissingPets {},
+                "Missing Pets"
+            }
+            Link {
+                to: Route::AdoptionPets {},
+                "Adoption Pets"
             }
         }
 
