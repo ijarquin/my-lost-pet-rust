@@ -4,6 +4,7 @@ mod pages;
 
 use crate::pages::HomePage;
 use crate::pages::MissingPetsPage;
+use crate::pages::AdoptionPetsPage;
 
 #[derive(Debug, Clone, Routable, PartialEq)]
 #[rustfmt::skip]
@@ -14,7 +15,7 @@ enum Route {
     #[route("/missing-pets")]
     MissingPetsPage {},
     #[route("/adoption-pets")]
-    AdoptionPets {},
+    AdoptionPetsPage {},
     #[route("/blog/:id")]
     Blog { id: i32 },
 }
@@ -33,30 +34,6 @@ fn App() -> Element {
         document::Link { rel: "icon", href: FAVICON }
         document::Link { rel: "stylesheet", href: MAIN_CSS } document::Link { rel: "stylesheet", href: TAILWIND_CSS }
         Router::<Route> {}
-    }
-}
-
-#[component]
-fn AdoptionPets() -> Element {
-    rsx! {
-        div {
-            id: "adoption-pets",
-
-            // Content
-            h1 { "Adoption Pets" }
-            p { "This page is a placeholder for adoption pets. You can navigate to the blog or home page." }
-
-            // Navigation links
-            Link {
-                to: Route::HomePage {},
-                "Go to Home"
-            }
-            span { " | " }
-            Link {
-                to: Route::Blog { id: 1 },
-                "Go to Blog"
-            }
-        }
     }
 }
 
@@ -100,7 +77,7 @@ fn Navbar() -> Element {
                 "Missing Pets"
             }
             Link {
-                to: Route::AdoptionPets {},
+                to: Route::AdoptionPetsPage {},
                 "Adoption Pets"
             }
         }
