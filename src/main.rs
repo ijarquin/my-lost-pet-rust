@@ -3,6 +3,7 @@ use dioxus::prelude::*;
 mod pages;
 
 use crate::pages::HomePage;
+use crate::pages::MissingPetsPage;
 
 #[derive(Debug, Clone, Routable, PartialEq)]
 #[rustfmt::skip]
@@ -11,7 +12,7 @@ enum Route {
     #[route("/")]
     HomePage {},
     #[route("/missing-pets")]
-    MissingPets {},
+    MissingPetsPage {},
     #[route("/adoption-pets")]
     AdoptionPets {},
     #[route("/blog/:id")]
@@ -32,30 +33,6 @@ fn App() -> Element {
         document::Link { rel: "icon", href: FAVICON }
         document::Link { rel: "stylesheet", href: MAIN_CSS } document::Link { rel: "stylesheet", href: TAILWIND_CSS }
         Router::<Route> {}
-    }
-}
-
-#[component]
-fn MissingPets() -> Element {
-    rsx! {
-        div {
-            id: "missing-pets",
-
-            // Content
-            h1 { "Missing Pets" }
-            p { "This page is a placeholder for missing pets. You can navigate to the blog or home page." }
-
-            // Navigation links
-            Link {
-                to: Route::HomePage {},
-                "Go to Home"
-            }
-            span { " | " }
-            Link {
-                to: Route::Blog { id: 1 },
-                "Go to Blog"
-            }
-        }
     }
 }
 
@@ -119,7 +96,7 @@ fn Navbar() -> Element {
                 "Home"
             }
             Link {
-                to: Route::MissingPets {},
+                to: Route::MissingPetsPage {},
                 "Missing Pets"
             }
             Link {
