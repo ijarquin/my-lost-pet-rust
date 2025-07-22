@@ -8,8 +8,15 @@
     cursor: pointer;
     font-size: 1rem;
     transition: background-color 0.2s ease, color 0.2s ease;
-
 }
+
+/* .login-button a:hover {
+    background-color: white;
+    color: hsl(231 69% 60%);
+    border: hsl(231 69% 60%) 1px solid;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    cursor: pointer;
+} */
 
 .home {
     padding: 20px;
@@ -19,7 +26,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 24px;
     background-color: hsl(231 69% 60%);;
     color: white;
     border-bottom: 1px solid #dee2e6;
