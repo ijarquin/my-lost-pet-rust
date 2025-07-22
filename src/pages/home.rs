@@ -1,12 +1,23 @@
 use dioxus::prelude::*;
 
-const HEADER_SVG: Asset = asset!("/assets/header.svg");
+const HERO_IMAGE: Asset = asset!("/assets/images/tirma.jpg");
+use crate::pages::MissingPetsPage;
+use crate::pages::AdoptionPetsPage;
+
+
+#[derive(Debug, Clone, Routable, PartialEq)]
+#[rustfmt::skip]
+enum Route {
+    #[route("/missing-pets")]
+    MissingPetsPage {},
+    #[route("/adoption-pets")]
+    AdoptionPetsPage {},
+}
 
 #[component]
 pub fn HomePage() -> Element {
     rsx! {
         Hero {}
-        Echo {}
     }
 }
 
@@ -14,49 +25,31 @@ pub fn HomePage() -> Element {
 pub fn Hero() -> Element {
     rsx! {
         div {
-            id: "hero",
-            img { src: HEADER_SVG, id: "header" }
-            div { id: "links",
-                a { href: "https://dioxuslabs.com/learn/0.6/", "📚 Learn Dioxus" }
-                a { href: "https://dioxuslabs.com/awesome", "🚀 Awesome Dioxus" }
-                a { href: "https://github.com/dioxus-community/", "📡 Community Libraries" }
-                a { href: "https://github.com/DioxusLabs/sdk", "⚙️ Dioxus Development Kit" }
-                a { href: "https://marketplace.visualstudio.com/items?itemName=DioxusLabs.dioxus", "💫 VSCode Extension" }
-                a { href: "https://discord.gg/XgGxMSkvUM", "👋 Community Discord" }
-            }
-        }
-    }
-}
-
-#[component]
-fn Echo() -> Element {
-    let mut response = use_signal(|| String::new());
-
-    rsx! {
-        div {
-            id: "echo",
-            h4 { "ServerFn Echo" }
-            input {
-                placeholder: "Type here to echo...",
-                oninput:  move |event| async move {
-                    let data = echo_server(event.value()).await.unwrap();
-                    response.set(data);
-                },
-            }
-
-            if !response().is_empty() {
-                p {
-                    "Server echoed: "
-                    i { "{response}" }
+            class: "home flex flex-row p-6 lg:flex-row lg:mb-0",
+            div {
+                class: "w-1/2",
+                id: "hero",
+                h1 { class: "m-0", id: "subtitle", "A place to find your loving pets" }
+                p { 
+                    class: "hero-description w-1/2",
+                    id: "description",
+                    "Find your loving pets, you can filter by regions, time they were lost. We hope you can find your pets as soon as possible." }
+                div {
+                    id: "links",
+                    a {
+                        href: "/missing-pets",
+                        "😿 Missing Pets"
+                    }
+                    a {
+                        href: "/adoption-pets", 
+                        "🐶 Adoption Pets"
+                    }
                 }
             }
+            img {
+                class: "max-w-1/2",
+                src: HERO_IMAGE
+            }
         }
     }
 }
-
-#[server(EchoServer)]
-async fn echo_server(input: String) -> Result<String, ServerFnError> {
-    Ok(input)
-}
-
-

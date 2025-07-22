@@ -30,8 +30,10 @@ fn main() {
 fn App() -> Element {
     rsx! {
         document::Link { rel: "icon", href: FAVICON }
-        document::Link { rel: "stylesheet", href: MAIN_CSS } document::Link { rel: "stylesheet", href: TAILWIND_CSS }
+        document::Link { rel: "stylesheet", href: MAIN_CSS }
+        document::Link { rel: "stylesheet", href: TAILWIND_CSS }
         Router::<Route> {}
+        Footer {}
     }
 }
 
@@ -40,21 +42,44 @@ fn App() -> Element {
 fn Navbar() -> Element {
     rsx! {
         div {
-            id: "navbar",
-            Link {
-                to: Route::HomePage {},
-                "Home"
+            class: "header-navbar flex space-between items-center justify-between p-4 bg-softBlue text-white",
+            div {
+                class: "z-50 flex flex-row items-center space-x-2",
+                Link {
+                    to: Route::HomePage {},
+                    "MyLostPet"
+                }
             }
-            Link {
-                to: Route::MissingPetsPage {},
-                "Missing Pets"
-            }
-            Link {
-                to: Route::AdoptionPetsPage {},
-                "Adoption Pets"
+            div {
+                class: "items-center space-x-10 upercase text-white md:flex",
+                Link {
+                    to: "#",
+                    "Rescue Centers"
+                }
+                Link {
+                    to: "#",
+                    "Adoption Policy"
+                }
+                Link {
+                    class: "px-8 py-2 text-white bg-softBlue border-2 border-softext-softBlue rounded-lg shadow-md hover:text-softBlue hover:bg-white",
+                    to: "#",
+                    "Login"
+                }
             }
         }
 
         Outlet::<Route> {}
+    }
+}
+
+#[component]
+fn Footer() -> Element {
+    rsx! {
+        footer {
+            class: "footer text-center p-4 bg-softBlue text-white",
+            p { "© 2023 MyLostPet. All rights reserved." }
+            p { "Follow us on social media!" }
+            // Add social media links here
+        }
     }
 }
