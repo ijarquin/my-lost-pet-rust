@@ -29,7 +29,7 @@ pub fn Hero() -> Element {
             div {
                 class: "w-1/2",
                 id: "hero",
-                h1 { class: "m-0", id: "subtitle", "A place to find your loving pets" }
+                h1 { class: "hero-title", id: "subtitle", "A place to find your loving pets" }
                 p { 
                     class: "hero-description w-1/2",
                     id: "description",

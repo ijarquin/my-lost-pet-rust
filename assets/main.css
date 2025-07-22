@@ -1,4 +1,16 @@
 /* App-wide styling */
+.login-button {
+    background-color: hsl(231 69% 60%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+}
+
 .home {
     padding: 20px;
 }
@@ -32,7 +44,11 @@ footer {
     width: 100%;
 }
 
-
+.hero-title {
+    margin: 0;
+    font-size: 2.5rem;
+    color: hsl(231 69% 60%);
+}
 .hero-description {
     line-height: 2;
     font-size: 1.2rem;

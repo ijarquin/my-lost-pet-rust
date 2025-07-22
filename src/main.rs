@@ -61,7 +61,7 @@ fn Navbar() -> Element {
                     "Adoption Policy"
                 }
                 Link {
-                    class: "px-8 py-2 text-white bg-softBlue border-2 border-softext-softBlue rounded-lg shadow-md hover:text-softBlue hover:bg-white",
+                    class: "login-button border-1",
                     to: "#",
                     "Login"
                 }
