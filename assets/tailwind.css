@@ -84,6 +84,10 @@
   border-style: var(--tw-border-style);
   border-width: 2px;
 }
+.border-none {
+  --tw-border-style: none;
+  border-style: none;
+}
 .mask-repeat {
   mask-repeat: repeat;
 }

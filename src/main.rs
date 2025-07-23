@@ -61,6 +61,7 @@ fn Navbar() -> Element {
                     "Adoption Policy"
                 }
                 Link {
+                    class: "login-button",
                     to: "#",
                     "Login"
                 }
@@ -76,7 +77,7 @@ fn Footer() -> Element {
     rsx! {
         footer {
             class: "footer text-center p-4 bg-softBlue text-white",
-            p { "© 2023 MyLostPet. All rights reserved." }
+            p { "© 2025 MyLostPet. All rights reserved." }
             p { "Follow us on social media!" }
             // Add social media links here
         }
