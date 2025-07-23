@@ -1,21 +1,6 @@
 /* App-wide styling */
-.login-button {
-    background-color: hsl(231 69% 60%);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-/* .login-button a:hover {
-    background-color: white;
-    color: hsl(231 69% 60%);
-    border: hsl(231 69% 60%) 1px solid;
-    transition: background-color 0.2s ease, color 0.2s ease;
-    cursor: pointer;
+/* .login-button {
+    
 } */
 
 .home {
@@ -38,6 +23,29 @@
         text-decoration: none;
         margin-right: 20px;
         transition: color 0.2s ease;
+    }
+
+    a:last-child {
+        margin-right: 0;
+        background-color: hsl(231 69% 60%);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        border-style: var(--tw-border-style);
+        border-width: 1px;
+    }
+
+    a:last-child:hover {
+        margin-right: 0;
+        background-color: white;
+        color: hsl(231 69% 60%);
+        border: hsl(231 69% 60%) 1px solid;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        cursor: pointer;
     }
 }
 

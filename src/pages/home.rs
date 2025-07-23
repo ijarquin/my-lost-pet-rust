@@ -25,7 +25,7 @@ pub fn HomePage() -> Element {
 pub fn Hero() -> Element {
     rsx! {
         div {
-            class: "home flex flex-row p-6 lg:flex-row lg:mb-0",
+            class: "home flex flex-row p-6",
             div {
                 class: "w-1/2",
                 id: "hero",

@@ -61,7 +61,6 @@ fn Navbar() -> Element {
                     "Adoption Policy"
                 }
                 Link {
-                    class: "login-button border-1",
                     to: "#",
                     "Login"
                 }
