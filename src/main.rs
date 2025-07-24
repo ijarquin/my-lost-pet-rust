@@ -51,7 +51,7 @@ fn Navbar() -> Element {
                 }
             }
             div {
-                class: "items-center space-x-10 upercase text-white md:flex",
+                class: "items-center space-x-10 uppercase text-white md:flex",
                 Link {
                     to: "#",
                     "Rescue Centers"
