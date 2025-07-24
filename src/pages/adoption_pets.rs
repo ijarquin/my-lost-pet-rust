@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
 #[component]
-pub fn AdoptionPetsPage() -> Element {
+pub fn AdoptionPets() -> Element {
     rsx! {
         div {
             id: "adoption-pets",

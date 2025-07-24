@@ -2,20 +2,20 @@ use dioxus::prelude::*;
 
 mod pages;
 
-use crate::pages::HomePage;
-use crate::pages::MissingPetsPage;
-use crate::pages::AdoptionPetsPage;
+use crate::pages::Home;
+use crate::pages::MissingPets;
+use crate::pages::AdoptionPets;
 
 #[derive(Debug, Clone, Routable, PartialEq)]
 #[rustfmt::skip]
 enum Route {
     #[layout(Navbar)]
     #[route("/")]
-    HomePage {},
+    Home {},
     #[route("/missing-pets")]
-    MissingPetsPage {},
+    MissingPets {},
     #[route("/adoption-pets")]
-    AdoptionPetsPage {},
+    AdoptionPets {},
 }
 
 const FAVICON: Asset = asset!("/assets/favicon.ico");
@@ -46,7 +46,7 @@ fn Navbar() -> Element {
             div {
                 class: "z-50 flex flex-row items-center space-x-2",
                 Link {
-                    to: Route::HomePage {},
+                    to: Route::Home {},
                     "MyLostPet"
                 }
             }
@@ -60,9 +60,12 @@ fn Navbar() -> Element {
                     to: "#",
                     "Adoption Policy"
                 }
-                Link {
+                button {
                     class: "login-button",
-                    to: "#",
+                    onclick: |_| {
+                        // Handle login logic here
+                        println!("Login button clicked");
+                    },
                     "Login"
                 }
             }
@@ -81,5 +84,51 @@ fn Footer() -> Element {
             p { "Follow us on social media!" }
             // Add social media links here
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use dioxus_ssr::render;
+    use dioxus_core::NoOpMutations;
+
+
+    #[test]
+    fn test_nav_bar_component() {
+        let mut vdom = VirtualDom::new(|| rsx! { Router::<Route> {} });
+        let mut mutations = NoOpMutations;
+        vdom.rebuild(&mut mutations);
+        let html = render(&mut vdom);
+
+        assert!(html.contains("MyLostPet"));
+        assert!(html.contains("Rescue Centers"));
+        assert!(html.contains("Adoption Policy"));
+        assert!(html.contains("login-button"));
+    }
+
+    #[test]
+    fn test_footer_component() {
+        let mut vdom = VirtualDom::new(|| rsx! { Footer {} });
+        let mut mutations = NoOpMutations;
+        vdom.rebuild(&mut mutations);
+        let html = render(&mut vdom);
+
+        assert!(html.contains("© 2025 MyLostPet. All rights reserved."));
+        assert!(html.contains("Follow us on social media!"));
+    }
+    #[test]
+    fn test_app_component() {
+        let mut vdom = VirtualDom::new(|| rsx! { App {} });
+        let mut mutations = NoOpMutations;
+        vdom.rebuild(&mut mutations);
+        let html = render(&mut vdom);
+
+        assert!(html.contains("MyLostPet"));
+        assert!(html.contains("Rescue Centers"));
+        assert!(html.contains("Adoption Policy"));
+        assert!(html.contains("login-button"));
+        assert!(html.contains("© 2025 MyLostPet. All rights reserved."));
+        assert!(html.contains("Follow us on social media!"));
     }
 }

@@ -1,21 +1,9 @@
 use dioxus::prelude::*;
 
 const HERO_IMAGE: Asset = asset!("/assets/images/tirma.jpg");
-use crate::pages::MissingPetsPage;
-use crate::pages::AdoptionPetsPage;
-
-
-#[derive(Debug, Clone, Routable, PartialEq)]
-#[rustfmt::skip]
-enum Route {
-    #[route("/missing-pets")]
-    MissingPetsPage {},
-    #[route("/adoption-pets")]
-    AdoptionPetsPage {},
-}
 
 #[component]
-pub fn HomePage() -> Element {
+pub fn Home() -> Element {
     rsx! {
         Hero {}
     }
@@ -36,20 +24,59 @@ pub fn Hero() -> Element {
                     "Find your loving pets, you can filter by regions, time they were lost. We hope you can find your pets as soon as possible." }
                 div {
                     id: "links",
-                    a {
-                        href: "/missing-pets",
+                    Link {
+                        id: "missing-pets-link",
+                        to: "/missing-pets",
                         "😿 Missing Pets"
                     }
-                    a {
-                        href: "/adoption-pets", 
+                    Link {
+                        id: "adoption-pets-link",
+                        to: "/adoption-pets", 
                         "🐶 Adoption Pets"
                     }
                 }
             }
             img {
-                class: "max-w-1/2",
+                id: "image",
+                class: "hero-image max-w-1/2",
                 src: HERO_IMAGE
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use dioxus_ssr::render;
+    use dioxus_core::NoOpMutations;
+
+
+    #[test]
+    fn test_hero_component() {
+        let mut vdom = VirtualDom::new(Hero);
+        let mut mutations = NoOpMutations;
+        vdom.rebuild(&mut mutations);
+        let html = render(&mut vdom);
+
+        assert!(html.contains("subtitle"));
+        assert!(html.contains("description"));
+        assert!(html.contains("image"));
+    }
+
+    #[test]
+    #[ignore]
+    fn test_links() {
+        let mut vdom = VirtualDom::new(Hero);
+        let mut mutations = NoOpMutations;
+        vdom.rebuild(&mut mutations);
+        let html = render(&mut vdom);
+
+        // Check that the links exist and have the correct href values
+        assert!(html.contains(r#"href="/missing-pets""#));
+        assert!(html.contains(r#"href="/adoption-pets""#));
+        // Optionally, check the link text as well
+        assert!(html.contains("😿 Missing Pets"));
+        assert!(html.contains("🐶 Adoption Pets"));
     }
 }
