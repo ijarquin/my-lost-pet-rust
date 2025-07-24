@@ -18,7 +18,7 @@ pub fn Hero() -> Element {
                 class: "w-1/2",
                 id: "hero",
                 h1 { class: "hero-title", id: "subtitle", "A place to find your loving pets" }
-                p { 
+                p {
                     class: "hero-description w-1/2",
                     id: "description",
                     "Find your loving pets, you can filter by regions, time they were lost. We hope you can find your pets as soon as possible." }
@@ -31,7 +31,7 @@ pub fn Hero() -> Element {
                     }
                     Link {
                         id: "adoption-pets-link",
-                        to: "/adoption-pets", 
+                        to: "/adoption-pets",
                         "🐶 Adoption Pets"
                     }
                 }
@@ -48,9 +48,8 @@ pub fn Hero() -> Element {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use dioxus_ssr::render;
     use dioxus_core::NoOpMutations;
-
+    use dioxus_ssr::render;
 
     #[test]
     fn test_hero_component() {
