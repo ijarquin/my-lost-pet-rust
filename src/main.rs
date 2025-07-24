@@ -2,9 +2,9 @@ use dioxus::prelude::*;
 
 mod pages;
 
+use crate::pages::AdoptionPets;
 use crate::pages::Home;
 use crate::pages::MissingPets;
-use crate::pages::AdoptionPets;
 
 #[derive(Debug, Clone, Routable, PartialEq)]
 #[rustfmt::skip]
@@ -90,9 +90,8 @@ fn Footer() -> Element {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use dioxus_ssr::render;
     use dioxus_core::NoOpMutations;
-
+    use dioxus_ssr::render;
 
     #[test]
     fn test_nav_bar_component() {
