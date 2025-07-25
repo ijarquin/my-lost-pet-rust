@@ -4,7 +4,6 @@ use crate::pages::AdoptionPets;
 use crate::pages::Home;
 use crate::pages::MissingPets;
 
-
 #[derive(Debug, Clone, Routable, PartialEq)]
 #[rustfmt::skip]
 pub enum Route {

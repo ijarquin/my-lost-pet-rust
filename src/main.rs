@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
-mod pages;
 mod components;
+mod pages;
 
 use crate::components::{Footer, Route};
 

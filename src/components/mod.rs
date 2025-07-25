@@ -1,5 +1,5 @@
-pub mod navbar;
 pub mod footer;
+pub mod navbar;
 
-pub use navbar::Route;
 pub use footer::Footer;
+pub use navbar::Route;
