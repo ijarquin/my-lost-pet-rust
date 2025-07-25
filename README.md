@@ -31,16 +31,3 @@ To run for a different platform, use the `--platform platform` flag. E.g.
 ```bash
 dx serve --platform desktop
 ```
-
-
-
-
-I am thinking about the tests strategy:
----------------------------------------
-unit test -> test on the same file that code (rust approach)
-integration test -> tests to describe the page content, it should display this component ...
-features -> cucumber tests to describe each feature.
-    features/header/
-        mod.rs
-        header.feature
-        header-steps.rs -> step definitions
