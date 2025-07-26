@@ -1,20 +1,18 @@
 use dioxus::prelude::*;
 
-const PET_IMAGE: Asset = asset!("/assets/images/xira.jpg");
-
 #[component]
-pub fn PetCard() -> Element {
+pub fn PetCard(name: String, image: String) -> Element {
     rsx! {
         div {
             class: "pet-card",
             img {
-                src: PET_IMAGE,
+                src: image,
                 alt: "Pet Image",
                 class: "w-full h-full object-cover"
             }
             div {
                 class: "pet-accordion flex flex-row items-center justify-between w-full",
-                p { class: "pet-name mx-4 text-sm text-gray-600", "Xira" }
+                p { class: "pet-name mx-4 text-sm text-gray-600", {name} }
                 div {
                     class: "flex items-center space-x-2",
                     button {
@@ -43,10 +41,3 @@ pub fn PetCard() -> Element {
         }
     }
 }
-
-
-// <div class={"transition duration-500 ease transform #{if @open_accordion == @pet.id |> Integer.to_string(), do: "rotate-180", else: "rotate-0"}"}>
-//           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12">
-//             <path d="M1 1l8 8 8-8" stroke="#fff" stroke-width="3" fill="none" />
-//           </svg>
-//         </div>
