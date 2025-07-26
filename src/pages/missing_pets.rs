@@ -1,14 +1,16 @@
 use dioxus::prelude::*;
 
+use crate::components::pet_card::PetCard;
+
 #[component]
 pub fn MissingPets() -> Element {
     rsx! {
         div {
             id: "missing-pets",
-            class: "text-center",
-            // Content
-            h1 { "Missing Pets" }
-            p { "This page is a placeholder for missing pets. You can navigate to the blog or home page." }
+            class: "text-center flex flex-row items-center justify-between w-full",
+            PetCard {}
+            PetCard {}
+            PetCard {}
         }
     }
 }

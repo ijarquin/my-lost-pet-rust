@@ -3,17 +3,35 @@
 .visible {
   visibility: visible;
 }
+.relative {
+  position: relative;
+}
 .z-50 {
   z-index: 50;
+}
+.mx-auto {
+  margin-inline: auto;
 }
 .flex {
   display: flex;
 }
+.h-full {
+  height: 100%;
+}
 .w-1\/2 {
   width: calc(1/2 * 100%);
 }
+.w-full {
+  width: 100%;
+}
 .max-w-1\/2 {
   max-width: calc(1/2 * 100%);
+}
+.rotate-0 {
+  rotate: 0deg;
+}
+.rotate-180 {
+  rotate: 180deg;
 }
 .transform {
   transform: var(--tw-rotate-x,) var(--tw-rotate-y,) var(--tw-rotate-z,) var(--tw-skew-x,) var(--tw-skew-y,);
@@ -27,14 +45,23 @@
 .flex-row {
   flex-direction: row;
 }
+.flex-wrap {
+  flex-wrap: wrap;
+}
 .items-center {
   align-items: center;
+}
+.items-start {
+  align-items: flex-start;
 }
 .justify-between {
   justify-content: space-between;
 }
 .justify-center {
   justify-content: center;
+}
+.overflow-hidden {
+  overflow: hidden;
 }
 .border {
   border-style: var(--tw-border-style);
@@ -48,8 +75,17 @@
   border-style: var(--tw-border-style);
   border-width: 2px;
 }
+.object-cover {
+  object-fit: cover;
+}
 .text-center {
   text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
 }
 .uppercase {
   text-transform: uppercase;
@@ -61,6 +97,10 @@
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, visibility, content-visibility, overlay, pointer-events;
   transition-timing-function: var(--tw-ease, ease);
   transition-duration: var(--tw-duration, 0s);
+}
+.duration-500 {
+  --tw-duration: 500ms;
+  transition-duration: 500ms;
 }
 @property --tw-rotate-x {
   syntax: "*";
@@ -140,6 +180,10 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-duration {
+  syntax: "*";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -162,6 +206,7 @@
       --tw-drop-shadow-color: initial;
       --tw-drop-shadow-alpha: 100%;
       --tw-drop-shadow-size: initial;
+      --tw-duration: initial;
     }
   }
 }
