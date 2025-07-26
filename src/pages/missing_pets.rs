@@ -5,9 +5,9 @@ use crate::components::pet_card::PetCard;
 #[component]
 pub fn MissingPets() -> Element {
     let pets = vec![
-        ("Xira", asset!("/assets/images/xira.jpg")),
-        ("Luna", asset!("/assets/images/luna.jpg")),
-        ("Max", asset!("/assets/images/alma.jpg")),
+        (1, "Xira", asset!("/assets/images/xira.jpg")),
+        (2, "Luna", asset!("/assets/images/luna.jpg")),
+        (3, "Max", asset!("/assets/images/alma.jpg")),
     ];
 
     rsx! {
@@ -15,9 +15,10 @@ pub fn MissingPets() -> Element {
             id: "missing-pets",
             class: "text-center flex flex-row items-center justify-between w-full",
             {
-                pets.iter().map(|(name, image)| {
+                pets.iter().map(|(id, name, image)| {
                     rsx! {
                         PetCard {
+                            id: "{id}",
                             name: name,
                             image: image,
                         }

@@ -1,9 +1,10 @@
 use dioxus::prelude::*;
 
 #[component]
-pub fn PetCard(name: String, image: String) -> Element {
+pub fn PetCard(id: String, name: String, image: String) -> Element {
     rsx! {
         div {
+            key: id,
             class: "pet-card",
             img {
                 src: image,
