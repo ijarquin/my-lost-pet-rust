@@ -13,7 +13,7 @@ pub fn PetCard(id: String, name: String, image: String) -> Element {
             }
             div {
                 class: "pet-accordion flex flex-row items-center justify-between w-full",
-                p { class: "pet-name mx-4 text-sm text-gray-600", {name} }
+                p { class: "mx-4 text-sm text-gray-600", {name} }
                 div {
                     class: "flex items-center space-x-2",
                     button {
