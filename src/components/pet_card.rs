@@ -24,7 +24,7 @@ pub fn PetCard(id: String, name: String, image: String) -> Element {
                         },
                         "Show more"
                     }
-                    svg { 
+                    svg {
                         class: "pet-accordion-icon text-gray-500",
                         view_box: "0 0 20 20",
                         fill: "currentColor",
@@ -52,14 +52,19 @@ mod tests {
     #[test]
     fn test_pet_card_component() {
         // let image = asset!("/assets/images/xira.jpg").to_string();
-        let mut vdom = VirtualDom::new(|| rsx! { PetCard { id: "1".to_string(), name: "Xira".to_string(), image: asset!("/assets/images/xira.jpg").to_string() } });
+        let mut vdom = VirtualDom::new(
+            || rsx! { PetCard { id: "1".to_string(), name: "Xira".to_string(), image: asset!("/assets/images/xira.jpg").to_string() } },
+        );
         let mut mutations = NoOpMutations;
         vdom.rebuild(&mut mutations);
         let html = render(&mut vdom);
 
         assert!(html.contains("<img"));
         assert!(html.contains("alt=\"Pet Image\""));
-        assert!(html.contains(&format!("src=\"{}\"", asset!("/assets/images/xira.jpg").to_string())));
+        assert!(html.contains(&format!(
+            "src=\"{}\"",
+            asset!("/assets/images/xira.jpg").to_string()
+        )));
         assert!(html.contains("Xira"));
         assert!(html.contains("Show more"));
         assert!(html.contains("pet-card"));
