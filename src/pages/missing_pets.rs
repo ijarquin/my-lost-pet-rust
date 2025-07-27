@@ -9,7 +9,7 @@ pub fn MissingPets() -> Element {
         (2, "Luna", asset!("/assets/images/luna.jpg")),
         (3, "Max", asset!("/assets/images/alma.jpg")),
         (4, "Tirma", asset!("/assets/images/tirma-1.jpg")),
-        (5, "Rufold", asset!("/assets/images/rudolf.jpg")),
+        (5, "Rudolf", asset!("/assets/images/rudolf.jpg")),
     ];
 
     rsx! {
