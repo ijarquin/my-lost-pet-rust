@@ -38,7 +38,18 @@ mod tests {
         };
         // let image = asset!("/assets/images/xira.jpg").to_string();
         let mut vdom = VirtualDom::new(
-            || rsx! { PetCard { pet: pet } },
+            || {
+                let pet = Pet {
+                    id: 1,
+                    name: "Xira",
+                    image: asset!("/assets/images/xira.jpg"),
+                    sex: "Female",
+                    age: "2 years",
+                    size: "Medium",
+                    breed: "Beagle",
+                };
+                rsx! { PetCard { pet: pet } }
+            },
         );
         let mut mutations = NoOpMutations;
         vdom.rebuild(&mut mutations);
