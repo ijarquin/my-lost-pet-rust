@@ -14,6 +14,7 @@
     margin: 60px;
     background-color: hsl(231 69% 60%);
     color: white;
+    height: fit-content;
 }
 .pet-card img {
     width: 100%;
@@ -51,13 +52,14 @@
 }
 
 .pet-accordion-content-open {
+    overflow-y: auto; 
     background-color: white;
     color: grey !important;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     border: 1px solid hsl(231 69% 60%);
     font-weight: bold;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease-in;
 }
 
 .accordion-item {
@@ -66,7 +68,9 @@
 
 .pet-accordion-content-closed {
     display: none;
-    transition: all 0.5s ease;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
 }
 
 .pet-accordion-content-button-left {

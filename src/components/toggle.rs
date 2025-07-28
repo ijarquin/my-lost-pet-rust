@@ -7,7 +7,6 @@ pub fn Toggle(pet: Pet) -> Element {
 
     let rotation = if *is_on.read() {"rotate-180"} else { "rotate-0"};
     let text_content = if *is_on.read() { "Show less" } else { "Show more" };
-    let switch_position = if *is_on.read() { "translate-x-full" } else { "translate-x-0" };
     let accordion_content_class = if *is_on.read() { "pet-accordion-content-open" } else { "pet-accordion-content-closed" };
 
     rsx! {
@@ -16,7 +15,7 @@ pub fn Toggle(pet: Pet) -> Element {
             onclick: move |_| is_on.toggle(), // The simplest and most idiomatic for bool
 
             div {
-                class: "w-7 h-7 bg-white rounded-full shadow-md transform transition-transform duration-300 {switch_position}",
+                class: "w-7 h-7 bg-white rounded-full shadow-md transform transition-transform duration-300",
             },
 
             div {
