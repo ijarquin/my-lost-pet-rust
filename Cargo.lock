@@ -3170,7 +3170,6 @@ dependencies = [
  "colored",
  "cucumber",
  "dioxus",
- "dioxus-hooks",
  "dioxus-ssr",
  "fmt",
  "pretty_assertions",
