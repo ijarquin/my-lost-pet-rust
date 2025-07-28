@@ -1,5 +1,5 @@
 use crate::components::Pet;
-use dioxus::{html::div, prelude::*};
+use dioxus::prelude::*;
 
 #[component]
 pub fn Toggle(pet: Pet) -> Element {
