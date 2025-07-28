@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
-use crate::components::PetCard;
 use crate::components::Pet;
+use crate::components::PetCard;
 
 #[component]
 pub fn MissingPets() -> Element {

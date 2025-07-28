@@ -1,13 +1,25 @@
-use dioxus::{html::div, prelude::*};
 use crate::components::Pet;
+use dioxus::{html::div, prelude::*};
 
 #[component]
 pub fn Toggle(pet: Pet) -> Element {
     let mut is_on = use_signal(|| false); // `mut` is crucial here
 
-    let rotation = if *is_on.read() {"rotate-180"} else { "rotate-0"};
-    let text_content = if *is_on.read() { "Show less" } else { "Show more" };
-    let accordion_content_class = if *is_on.read() { "pet-accordion-content-open" } else { "pet-accordion-content-closed" };
+    let rotation = if *is_on.read() {
+        "rotate-180"
+    } else {
+        "rotate-0"
+    };
+    let text_content = if *is_on.read() {
+        "Show less"
+    } else {
+        "Show more"
+    };
+    let accordion_content_class = if *is_on.read() {
+        "pet-accordion-content-open"
+    } else {
+        "pet-accordion-content-closed"
+    };
 
     rsx! {
         div {

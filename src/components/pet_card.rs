@@ -1,7 +1,7 @@
 use dioxus::prelude::*;
 
-use crate::components::Toggle;
 use crate::components::Pet;
+use crate::components::Toggle;
 
 #[component]
 pub fn PetCard(pet: Pet) -> Element {
@@ -27,7 +27,7 @@ mod tests {
 
     #[test]
     fn test_pet_card_component() {
-         let pet = Pet {
+        let pet = Pet {
             id: 1,
             name: "Xira",
             image: asset!("/assets/images/xira.jpg"),
@@ -37,20 +37,18 @@ mod tests {
             breed: "Beagle",
         };
         // let image = asset!("/assets/images/xira.jpg").to_string();
-        let mut vdom = VirtualDom::new(
-            || {
-                let pet = Pet {
-                    id: 1,
-                    name: "Xira",
-                    image: asset!("/assets/images/xira.jpg"),
-                    sex: "Female",
-                    age: "2 years",
-                    size: "Medium",
-                    breed: "Beagle",
-                };
-                rsx! { PetCard { pet: pet } }
-            },
-        );
+        let mut vdom = VirtualDom::new(|| {
+            let pet = Pet {
+                id: 1,
+                name: "Xira",
+                image: asset!("/assets/images/xira.jpg"),
+                sex: "Female",
+                age: "2 years",
+                size: "Medium",
+                breed: "Beagle",
+            };
+            rsx! { PetCard { pet: pet } }
+        });
         let mut mutations = NoOpMutations;
         vdom.rebuild(&mut mutations);
         let html = render(&mut vdom);
