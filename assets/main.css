@@ -53,13 +53,14 @@
 
 .pet-accordion-content-open {
     overflow-y: auto; 
+    max-height: 500px;
     background-color: white;
     color: grey !important;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     border: 1px solid hsl(231 69% 60%);
     font-weight: bold;
-    transition: all 0.5s ease-in;
+    transition: all 0.4s ease-in;
 }
 
 .accordion-item {
@@ -67,10 +68,10 @@
 }
 
 .pet-accordion-content-closed {
-    display: none;
-    max-height: 0;
+    /* display: none; */
+    max-height: 0px;
     overflow: hidden;
-    transition: max-height 0.5s ease-out;
+    transition: max-height 0.4s ease-out;
 }
 
 .pet-accordion-content-button-left {
