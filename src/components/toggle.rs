@@ -87,3 +87,60 @@ pub fn Toggle(pet: Pet) -> Element {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use dioxus_core::NoOpMutations;
+    use dioxus_ssr::render;
+
+    #[test]
+    fn test_toggle_is_closed_by_default() {
+        let mut vdom = VirtualDom::new(|| {
+            let pet = Pet {
+                id: 1,
+                name: "Xira",
+                image: asset!("/assets/images/xira.jpg"),
+                sex: "Female",
+                age: "2 years",
+                size: "Medium",
+                breed: "Beagle",
+            };
+            rsx! { Toggle { pet: pet } }
+        });
+        let mut mutations = NoOpMutations;
+        vdom.rebuild(&mut mutations);
+        let html = render(&mut vdom);
+        assert!(html.contains("pet-accordion-content-closed"));
+        assert!(html.contains("Xira"));
+        assert!(html.contains("Show more"));
+        assert!(!html.contains("Show less"));
+    }
+
+    #[test]
+    fn test_pet_acordion_opens_when_user_click() {
+        let mut vdom = VirtualDom::new(|| {
+            let pet = Pet {
+                id: 1,
+                name: "Xira",
+                image: asset!("/assets/images/xira.jpg"),
+                sex: "Female",
+                age: "2 years",
+                size: "Medium",
+                breed: "Beagle",
+            };
+            rsx! { Toggle { pet: pet } }
+        });
+        let mut mutations = NoOpMutations;
+        vdom.rebuild(&mut mutations);
+        let html = render(&mut vdom);
+        assert!(html.contains("pet-accordion-content-closed"));
+        // then we need to figure it out how to click on an element
+        // assert!(html.contains("pet-accordion-content-open"));
+    }
+
+    // #[test]
+    // fn test_when_toggle_is_open_displays_extra_pet_info() {
+
+    // }
+}

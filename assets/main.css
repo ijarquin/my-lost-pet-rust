@@ -7,6 +7,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Creates 3 columns of equal width */
     grid-template-rows: repeat(2, auto);    /* Creates 2 rows with automatic height */                            /* Adds space between grid items (optional) */
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .pet-card {
