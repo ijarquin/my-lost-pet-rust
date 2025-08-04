@@ -23,6 +23,7 @@ pub fn Toggle(pet: Pet) -> Element {
 
     rsx! {
         div {
+            id: "accordion-toggle",
             class: "pet-accordion flex flex-row items-center justify-between w-full",
             onclick: move |_| is_on.toggle(), // The simplest and most idiomatic for bool
 
@@ -36,6 +37,7 @@ pub fn Toggle(pet: Pet) -> Element {
             },
 
             div {
+                id: "accordion-toggle-button",
                 class: "pet-accordion-button flex items-center space-x-2",
                 div {
                     class: "pet-accordion-button-text text-blue-500 hover:text-blue-700",

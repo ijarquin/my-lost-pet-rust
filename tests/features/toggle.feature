@@ -5,19 +5,18 @@ Feature: Toggle Component Functionality
 
   Scenario: Initial state of the toggle
     Given the toggle component is rendered
-    Then the toggle should be "Off"
-    And the toggle button should have class "off"
+    Then the toggle should be "Closed"
 
-#   Scenario: Toggling the switch from Off to On
-#     Given the toggle component is rendered
-#     And the toggle is "Off"
-#     When I click the toggle button
-#     Then the toggle should be "On"
-#     And the toggle button should have class "on"
+  Scenario: Toggling the switch from Closed to Open
+    Given the toggle component is rendered
+    And the toggle is "Closed"
+    When I click the toggle button
+    Then the toggle should be "Open"
 
-#   Scenario: Toggling the switch from On to Off
-#     Given the toggle component is rendered
-#     And the toggle is "On"
-#     When I click the toggle button
-#     Then the toggle should be "Off"
-#     And the toggle button should have class "off"
+  Scenario: Toggling the switch from Open to Closed
+    Given the toggle component is rendered
+    And the toggle is "Closed"
+    When I click the toggle button
+    Then the toggle should be "Open"
+    When I click the toggle button
+    Then the toggle should be "Closed"

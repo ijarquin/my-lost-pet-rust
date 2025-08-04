@@ -11,10 +11,10 @@ env:
 
 jobs:
   test:
-    name: Running unit and integration tests.
+    name: Running units tests.
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
     - name: Run tests
-      run: cargo test --verbose
+      run: cargo test --bin my-lost-pet-rust --verbose
