@@ -102,7 +102,7 @@ mod tests {
             let pet = Pet {
                 id: 1,
                 name: "Xira",
-                image: asset!("/assets/images/xira.jpg"),
+                images: vec![asset!("/assets/images/xira.jpg")],
                 sex: "Female",
                 age: "2 years",
                 size: "Medium",
@@ -125,7 +125,7 @@ mod tests {
             let pet = Pet {
                 id: 1,
                 name: "Xira",
-                image: asset!("/assets/images/xira.jpg"),
+                images: vec![asset!("/assets/images/xira.jpg")],
                 sex: "Female",
                 age: "2 years",
                 size: "Medium",

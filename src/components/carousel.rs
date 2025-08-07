@@ -2,6 +2,9 @@ use dioxus::prelude::*;
 
 #[component]
 pub fn Carousel(images: Vec<String>) -> Element {
+    let carrusel_images = images.clone();
+    let more_images = images.clone();
+    let images_len = images.len();
     let mut current_image = use_signal(|| 0);
 
     let next_image = move |_| {
@@ -13,7 +16,7 @@ pub fn Carousel(images: Vec<String>) -> Element {
     let prev_image = move |_| {
         current_image.with_mut(|i| {
             if *i == 0 {
-                *i = images.len() - 1;
+                *i = carrusel_images.len() - 1;
             } else {
                 *i -= 1;
             }
@@ -26,7 +29,7 @@ pub fn Carousel(images: Vec<String>) -> Element {
             div {
                 class: "overflow-hidden relative rounded-lg",
                 // Images
-                for (idx, image) in images.iter().enumerate() {
+                for (idx, image) in more_images.iter().enumerate() {
                     div {
                         key: "{idx}",
                         class: if idx == current_image() {
@@ -60,7 +63,7 @@ pub fn Carousel(images: Vec<String>) -> Element {
             // Dots
             div {
                 class: "absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2",
-                for i in 0..images.len() {
+                for i in 0..images_len {
                     button {
                         class: if i == current_image() {
                             "w-3 h-3 bg-blue-500 rounded-full"
