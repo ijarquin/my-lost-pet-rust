@@ -1,6 +1,5 @@
 // tests/steps/toggle_steps.rs
 use cucumber::{given, then, when, World};
-use dioxus::html::i;
 use thirtyfour::prelude::*; // Import thirtyfour
                             // use tokio; // For async operations
 use pretty_assertions::assert_eq;
@@ -8,12 +7,6 @@ use pretty_assertions::assert_eq;
 // The base URL of your running Dioxus application
 const BASE_URL: &str = "http://localhost:8080/missing-pets";
 
-// let caps = DesiredCapabilities::chrome();
-// let driver = WebDriver::new(BASE_URL, caps) // <--- This port must be correct!
-//     .await
-//     .expect("Failed to connect to WebDriver. Is chromedriver/geckodriver running?");
-
-// Define your World struct to hold the WebDriver instance
 #[derive(Default, World)]
 pub struct Toggle {
     driver: Option<WebDriver>, // Use Option to manage the driver lifecycle
@@ -21,33 +14,11 @@ pub struct Toggle {
 
 impl std::fmt::Debug for Toggle {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        // You can choose to print the address, a placeholder, or just skip it
-        // A placeholder is often best to avoid printing sensitive information.
         f.debug_struct("MyWorld")
             .field("driver", &"WebDriver connection (not printable)")
             .finish()
     }
 }
-
-// impl World for Toggle {
-//     // This hook runs before each scenario
-//     async fn before_all() {
-//         println!("Starting WebDriver...");
-//         // You might want to ensure chromedriver is running here,
-//         // or have a separate script/process manage it.
-//         // For simplicity, we assume it's running on localhost:9515 (default chromedriver port)
-//     }
-
-//     // This hook runs after each scenario, ensuring the browser is closed
-//     async fn after_each(scenario: &cucumber::Scenario, world: &mut Self) {
-//         if let Some(driver) = world.driver.take() { // Use take() to consume the driver
-//             println!("Closing browser for scenario: {:?}", scenario.name);
-//             driver.quit().await.expect("Failed to quit WebDriver");
-//         }
-//     }
-// }
-
-// --- GIVEN Steps ---
 
 #[given(regex = r"the toggle component is rendered")]
 async fn toggle_component_rendered(world: &mut Toggle) {
@@ -85,7 +56,6 @@ async fn toggle_is_state(world: &mut Toggle, state: String) {
     println!("Then: Toggle is {}.", expected_state);
 }
 
-// --- WHEN Steps ---
 
 #[when(regex = r"I click the toggle button")]
 async fn click_toggle_button(world: &mut Toggle) {
@@ -101,8 +71,6 @@ async fn click_toggle_button(world: &mut Toggle) {
         .expect("Failed to click toggle button");
     println!("When: Clicked the toggle button.");
 }
-
-// --- THEN Steps ---
 
 #[then(regex = r#"^the toggle should be "(Open|Closed)"$"#)]
 async fn toggle_should_be_state(world: &mut Toggle, state: String) {
