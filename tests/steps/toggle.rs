@@ -56,7 +56,6 @@ async fn toggle_is_state(world: &mut Toggle, state: String) {
     println!("Then: Toggle is {}.", expected_state);
 }
 
-
 #[when(regex = r"I click the toggle button")]
 async fn click_toggle_button(world: &mut Toggle) {
     let driver = world.driver.as_ref().expect("WebDriver not initialized");
