@@ -124,15 +124,3 @@ async fn toggle_should_be_state(world: &mut Toggle, state: String) {
     assert_eq!(actual_text, expected_state, "Toggle state mismatch.");
     println!("Then: Toggle is {}.", expected_state);
 }
-
-// #[then(regex = r"the toggle button should have class \"(on|off)\"")]
-// async fn toggle_button_has_class(world: &mut Toggle, expected_class: String) {
-//     let driver = world.driver.as_ref().expect("WebDriver not initialized");
-//     let button_element = driver.find(By::Id("toggle-button"))
-//         .await
-//         .expect("Toggle button with id 'toggle-button' not found on page.");
-
-//     let classes = button_element.class_name().await.expect("Failed to get button class name");
-//     assert!(classes.contains(&expected_class), "Expected class '{}' not found in '{}'", expected_class, classes);
-//     println!("Then: Toggle button has class {}.", expected_class);
-// }
