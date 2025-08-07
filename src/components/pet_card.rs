@@ -1,44 +1,20 @@
 use dioxus::prelude::*;
 
+use crate::components::Pet;
+use crate::components::Toggle;
+
 #[component]
-pub fn PetCard(id: String, name: String, image: String) -> Element {
+pub fn PetCard(pet: Pet) -> Element {
     rsx! {
         div {
-            key: id,
+            key: pet.id,
             class: "pet-card",
             img {
-                src: image,
+                src: pet.image,
                 alt: "Pet Image",
                 class: "w-full h-full object-cover"
             }
-            div {
-                class: "pet-accordion flex flex-row items-center justify-between w-full",
-                p { class: "mx-4 text-sm text-gray-600", {name} }
-                div {
-                    class: "flex items-center space-x-2",
-                    button {
-                        class: "pet-accordion-button text-blue-500 hover:text-blue-700",
-                        onclick: |_| {
-                            // Handle accordion toggle logic here
-                            println!("Accordion button clicked");
-                        },
-                        "Show more"
-                    }
-                    svg {
-                        class: "pet-accordion-icon text-gray-500",
-                        view_box: "0 0 20 20",
-                        fill: "currentColor",
-                        width: "20",
-                        height: "18",
-                        path {
-                            d: "M1 1l8 8 8-8",
-                            stroke: "#fff",
-                            stroke_width: "3",
-                            fill: "none"
-                        }
-                    }
-                }
-            }
+            Toggle { pet: pet.clone() }
         }
     }
 }
@@ -51,10 +27,28 @@ mod tests {
 
     #[test]
     fn test_pet_card_component() {
+        let pet = Pet {
+            id: 1,
+            name: "Xira",
+            image: asset!("/assets/images/xira.jpg"),
+            sex: "Female",
+            age: "2 years",
+            size: "Medium",
+            breed: "Beagle",
+        };
         // let image = asset!("/assets/images/xira.jpg").to_string();
-        let mut vdom = VirtualDom::new(
-            || rsx! { PetCard { id: "1".to_string(), name: "Xira".to_string(), image: asset!("/assets/images/xira.jpg").to_string() } },
-        );
+        let mut vdom = VirtualDom::new(|| {
+            let pet = Pet {
+                id: 1,
+                name: "Xira",
+                image: asset!("/assets/images/xira.jpg"),
+                sex: "Female",
+                age: "2 years",
+                size: "Medium",
+                breed: "Beagle",
+            };
+            rsx! { PetCard { pet: pet } }
+        });
         let mut mutations = NoOpMutations;
         vdom.rebuild(&mut mutations);
         let html = render(&mut vdom);

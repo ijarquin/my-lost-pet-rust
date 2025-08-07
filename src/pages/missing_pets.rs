@@ -1,15 +1,47 @@
 use dioxus::prelude::*;
 
+use crate::components::Pet;
 use crate::components::PetCard;
 
 #[component]
 pub fn MissingPets() -> Element {
     let pets = vec![
-        (1, "Xira", asset!("/assets/images/xira.jpg")),
-        (2, "Luna", asset!("/assets/images/luna.jpg")),
-        (3, "Max", asset!("/assets/images/alma.jpg")),
-        (4, "Tirma", asset!("/assets/images/tirma-1.jpg")),
-        (5, "Rudolf", asset!("/assets/images/rudolf.jpg")),
+        Pet {
+            id: 1,
+            name: "Xira",
+            image: asset!("/assets/images/xira.jpg"),
+            sex: "Female",
+            age: "2 years",
+            size: "Medium",
+            breed: "Beagle",
+        },
+        Pet {
+            id: 2,
+            name: "Luna",
+            image: asset!("/assets/images/luna.jpg"),
+            sex: "Female",
+            age: "3 years",
+            size: "Small",
+            breed: "Poodle",
+        },
+        Pet {
+            id: 3,
+            name: "Max",
+            image: asset!("/assets/images/alma.jpg"),
+            sex: "Male",
+            age: "4 years",
+            size: "Large",
+            breed: "German Shepherd",
+        },
+        Pet {
+            id: 4,
+            name: "Rudolf",
+            image: asset!("/assets/images/rudolf.jpg"),
+            sex: "Male",
+            age: "5 years",
+            size: "Medium",
+            breed: "Beagle",
+        },
     ];
 
     rsx! {
@@ -17,13 +49,9 @@ pub fn MissingPets() -> Element {
             id: "missing-pets",
             class: "missing-pets",
             {
-                pets.iter().map(|(id, name, image)| {
+                pets.iter().map(|pet| {
                     rsx! {
-                        PetCard {
-                            id: "{id}",
-                            name: name,
-                            image: image,
-                        }
+                        PetCard {pet: pet.clone()}
                     }
                 })
             }

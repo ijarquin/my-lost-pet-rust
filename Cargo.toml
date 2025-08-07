@@ -16,6 +16,8 @@ cucumber = "0.21.1" # Use the latest version
 async-std = { version = "1.10", features = ["attributes"] }
 colored = "2"
 pretty_assertions = "1.4.1"
+thirtyfour = "0.31"
+tokio = "1.47.0"
 
 [features]
 default = ["web"]
