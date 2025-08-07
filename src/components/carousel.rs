@@ -25,22 +25,22 @@ pub fn Carousel(images: Vec<String>) -> Element {
 
     rsx! {
         div {
-            class: "relative",
+            class: "tw-relative",
             div {
-                class: "overflow-hidden relative rounded-lg",
+                class: "tw-overflow-hidden tw-relative tw-rounded-lg tw-h-64",
                 // Images
                 for (idx, image) in more_images.iter().enumerate() {
                     div {
                         key: "{idx}",
                         class: if idx == current_image() {
-                            "opacity-100 transition-opacity duration-500 ease-in-out"
+                            "tw-opacity-100 tw-transition-opacity tw-duration-500 tw-ease-in-out"
                         } else {
-                            "opacity-0 absolute top-0 left-0 w-full h-full transition-opacity duration-500 ease-in-out"
+                            "tw-opacity-0 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-transition-opacity tw-duration-500 tw-ease-in-out"
                         },
                         img {
                             src: "{image}",
                             alt: "Pet Image",
-                            class: "w-full h-full object-cover"
+                            class: "tw-w-full tw-h-full tw-object-cover"
                         }
                     }
                 }
@@ -48,27 +48,27 @@ pub fn Carousel(images: Vec<String>) -> Element {
 
             // Prev Button
             button {
-                class: "absolute top-1/2 left-2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2",
+                class: "tw-absolute tw-top-1/2 tw-left-2 tw-transform -tw-translate-y-1/2 tw-rounded-full tw-p-2 tw-text-white hover:tw-bg-black/20",
                 onclick: prev_image,
                 "◀"
             }
 
             // Next Button
             button {
-                class: "absolute top-1/2 right-2 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2",
+                class: "tw-absolute tw-top-1/2 tw-right-2 tw-transform -tw-translate-y-1/2 tw-rounded-full tw-p-2 tw-text-white hover:tw-bg-black/20",
                 onclick: next_image,
                 "▶"
             }
 
             // Dots
             div {
-                class: "absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2",
+                class: "tw-absolute tw-bottom-2 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-flex tw-space-x-2",
                 for i in 0..images_len {
                     button {
                         class: if i == current_image() {
-                            "w-3 h-3 bg-blue-500 rounded-full"
+                            "tw-w-3 tw-h-3 tw-bg-softBlue tw-rounded-full"
                         } else {
-                            "w-3 h-3 bg-white rounded-full"
+                            "tw-w-3 tw-h-3 tw-bg-white tw-rounded-full"
                         },
                         onclick: move |_| current_image.set(i)
                     }
