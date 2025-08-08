@@ -12,3 +12,26 @@ edcases:
 - if the user is in the very first image and click on the left arrow we will move to the very last image.
 
 Animation: when we move between images I am expecting and smoth transition from one image to the other. arrows and dots will display in white collor, exept for the dot from the image selected that will display in the same blue collor used for the application botton and header.
+
+BDD Scenarios
+Feature: Image Carousel Navigation
+
+  Scenario: Display next image when right arrow is clicked
+    Given the carousel is displaying an image
+    When the user clicks the right arrow
+    Then the carousel should display the next image
+
+  Scenario: Display previous image when left arrow is clicked
+    Given the carousel is displaying an image
+    When the user clicks the left arrow
+    Then the carousel should display the previous image
+
+  Scenario: Loop to first image when right arrow is clicked on the last image
+    Given the carousel is displaying the last image
+    When the user clicks the right arrow
+    Then the carousel should display the first image
+
+  Scenario: Loop to last image when left arrow is clicked on the first image
+    Given the carousel is displaying the first image
+    When the user clicks the left arrow
+    Then the carousel should display the last image
