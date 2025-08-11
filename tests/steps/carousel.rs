@@ -56,6 +56,7 @@ async fn user_clicks_the_right_arrow(world: &mut CarouselWorld) {
 async fn carousel_should_display_the_next_image(world: &mut CarouselWorld) {
     let driver = world.driver.as_ref().expect("WebDriver not initialized");
     let initial_src = get_current_image_src(driver).await.unwrap();
+    click_right_arrow(driver).await.expect("Failed to click previous button");
     tokio::time::sleep(tokio::time::Duration::from_secs(1)).await; // Wait for transition
     let next_src = get_current_image_src(driver).await.unwrap();
     assert_ne!(initial_src, next_src, "Image should have changed");
@@ -72,6 +73,7 @@ async fn carousel_should_display_the_previous_image(world: &mut CarouselWorld) {
     let driver = world.driver.as_ref().expect("WebDriver not initialized");
     let initial_src = get_current_image_src(driver).await.unwrap();
     tokio::time::sleep(tokio::time::Duration::from_secs(1)).await; // Wait for transition
+    click_left_arrow(driver).await.expect("Failed to click previous button");
     let prev_src = get_current_image_src(driver).await.unwrap();
     assert_ne!(initial_src, prev_src, "Image should have changed");
 }
