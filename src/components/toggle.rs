@@ -24,23 +24,19 @@ pub fn Toggle(pet: Pet) -> Element {
     rsx! {
         div {
             id: "accordion-toggle",
-            class: "pet-accordion flex flex-row items-center justify-between w-full",
+            class: "pet-accordion tw-flex tw-flex-row tw-items-center tw-justify-between tw-w-full",
             onclick: move |_| is_on.toggle(), // The simplest and most idiomatic for bool
 
             div {
-                class: "w-7 h-7 bg-white rounded-full shadow-md transform transition-transform duration-300",
-            },
-
-            div {
-                class: "absolute w-16 text-center text-white font-bold text-sm pointer-events-none",
+                class: "tw-text-center tw-text-white tw-font-bold tw-text-sm tw-pointer-events-none",
                 "{pet.name}"
             },
 
             div {
                 id: "accordion-toggle-button",
-                class: "pet-accordion-button flex items-center space-x-2",
+                class: "tw-flex tw-items-center tw-space-x-2",
                 div {
-                    class: "pet-accordion-button-text text-blue-500 hover:text-blue-700",
+                    class: "pet-accordion-button-text",
                     "{text_content}"
                 }
                 svg {
@@ -62,29 +58,29 @@ pub fn Toggle(pet: Pet) -> Element {
         div {
             class: "{accordion_content_class}",
             div {
-                class: "flex flex-row justify-between border-b-1",
+                class: "tw-flex tw-flex-row tw-justify-between tw-border-b-1",
                 div {class: "accordion-item", "Sex"}
                 div {class: "accordion-item", {pet.sex}}
             }
             div {
-                class: "flex flex-row justify-between border-b-1",
+                class: "tw-flex tw-flex-row tw-justify-between tw-border-b-1",
                 div {class: "accordion-item", "Age"}
                 div {class: "accordion-item", {pet.age}}
             }
             div {
-                class: "flex flex-row justify-between border-b-1",
+                class: "tw-flex tw-flex-row tw-justify-between tw-border-b-1",
                 div {class: "accordion-item", "Size"}
                 div {class: "accordion-item", {pet.size}}
             }
             div {
-                class: "flex flex-row justify-between",
+                class: "tw-flex tw-flex-row tw-justify-between",
                 div {class: "accordion-item", "Breed"}
                 div {class: "accordion-item", {pet.breed}}
             }
             div {
-                class: "flex items-center justify-center w-full",
-                button {class: "pet-accordion-content-button-left w-1/2", "Adopt me"}
-                button {class: "pet-accordion-content-button-right w-1/2", "Book a view"}
+                class: "tw-flex tw-items-center tw-justify-center tw-w-full",
+                button {class: "pet-accordion-content-button-left tw-w-1/2", "Adopt me"}
+                button {class: "pet-accordion-content-button-right tw-w-1/2", "Book a view"}
             }
         }
     }
@@ -102,7 +98,7 @@ mod tests {
             let pet = Pet {
                 id: 1,
                 name: "Xira",
-                image: asset!("/assets/images/xira.jpg"),
+                images: vec![asset!("/assets/images/xira.jpg")],
                 sex: "Female",
                 age: "2 years",
                 size: "Medium",
@@ -125,7 +121,7 @@ mod tests {
             let pet = Pet {
                 id: 1,
                 name: "Xira",
-                image: asset!("/assets/images/xira.jpg"),
+                images: vec![asset!("/assets/images/xira.jpg")],
                 sex: "Female",
                 age: "2 years",
                 size: "Medium",

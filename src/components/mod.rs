@@ -1,3 +1,4 @@
+pub mod carousel;
 pub mod footer;
 pub mod navbar;
 pub mod pet;

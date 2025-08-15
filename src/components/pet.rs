@@ -4,7 +4,7 @@ use dioxus::prelude::*;
 pub struct Pet {
     pub id: u32,
     pub name: &'static str,
-    pub image: Asset,
+    pub images: Vec<Asset>,
     pub sex: &'static str,
     pub age: &'static str,
     pub size: &'static str,
