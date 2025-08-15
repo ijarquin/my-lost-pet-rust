@@ -1,9 +1,9 @@
+pub mod carousel;
 pub mod footer;
 pub mod navbar;
 pub mod pet;
 pub mod pet_card;
 pub mod toggle;
-pub mod carousel;
 
 pub use footer::Footer;
 pub use navbar::Route;

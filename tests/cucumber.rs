@@ -2,8 +2,8 @@
 mod steps;
 
 use colored::*;
-use steps::toggle::*; // Import the toggle steps
 use steps::carousel::*;
+use steps::toggle::*; // Import the toggle steps
 
 use cucumber::World; // Import the World trait
 

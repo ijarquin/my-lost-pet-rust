@@ -21,9 +21,7 @@ pub fn MissingPets() -> Element {
         Pet {
             id: 2,
             name: "Luna",
-            images: vec![
-                asset!("/assets/images/luna.jpg"),
-            ],
+            images: vec![asset!("/assets/images/luna.jpg")],
             sex: "Female",
             age: "3 years",
             size: "Small",
@@ -32,9 +30,7 @@ pub fn MissingPets() -> Element {
         Pet {
             id: 3,
             name: "Max",
-            images: vec![
-                asset!("/assets/images/alma.jpg"),
-            ],
+            images: vec![asset!("/assets/images/alma.jpg")],
             sex: "Male",
             age: "4 years",
             size: "Large",
@@ -43,9 +39,7 @@ pub fn MissingPets() -> Element {
         Pet {
             id: 4,
             name: "Rudolf",
-            images: vec![
-                asset!("/assets/images/rudolf.jpg"),
-            ],
+            images: vec![asset!("/assets/images/rudolf.jpg")],
             sex: "Male",
             age: "5 years",
             size: "Medium",

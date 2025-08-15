@@ -1,2 +1,2 @@
-pub mod toggle;
 pub mod carousel;
+pub mod toggle;
