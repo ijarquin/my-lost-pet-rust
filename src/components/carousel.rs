@@ -48,6 +48,7 @@ pub fn Carousel(images: Vec<String>) -> Element {
             if images_len > 1 {
                 // Prev Button
                 button {
+                    id: "prev-button",
                     class: "tw-absolute tw-top-1/2 tw-left-2 tw-transform -tw-translate-y-1/2 tw-rounded-full tw-p-2 tw-text-white hover:tw-bg-black/20",
                     onclick: prev_image,
                     "◀"
@@ -55,6 +56,7 @@ pub fn Carousel(images: Vec<String>) -> Element {
 
                 // Next Button
                 button {
+                    id: "next-button",
                     class: "tw-absolute tw-top-1/2 tw-right-2 tw-transform -tw-translate-y-1/2 tw-rounded-full tw-p-2 tw-text-white hover:tw-bg-black/20",
                     onclick: next_image,
                     "▶"
@@ -76,5 +78,33 @@ pub fn Carousel(images: Vec<String>) -> Element {
                 }
             }
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use dioxus_core::NoOpMutations;
+    use dioxus_ssr::render;
+
+    #[test]
+    fn test_carousel_component() {
+        let mut vdom = VirtualDom::new(|| {
+            let images = vec![
+                asset!("/assets/images/xira.jpg").to_string(),
+                asset!("/assets/images/tirma-1.jpg").to_string(),
+            ];
+            rsx! { Carousel { images: images } }
+        });
+        let mut mutations = NoOpMutations;
+        vdom.rebuild(&mut mutations);
+        let html = render(&mut vdom);
+
+        assert!(html.contains("tw-relative"));
+        assert!(html.contains("tw-overflow-hidden"));
+        assert!(html.contains("tw-rounded-lg"));
+        assert!(html.contains("tw-h-64"));
+        assert!(html.contains(r#"id="prev-button""#));
+        assert!(html.contains(r#"id="next-button""#));
     }
 }
