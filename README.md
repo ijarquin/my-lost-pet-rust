@@ -31,3 +31,15 @@ To run for a different platform, use the `--platform platform` flag. E.g.
 ```bash
 dx serve --platform desktop
 ```
+
+### Docker
+
+Alternatively, you can use Docker Compose to run the development environment. Make sure you have Docker and Docker Compose installed.
+
+1. Build and start the services:
+```bash
+docker compose up --build
+```
+
+The application will be available at http://localhost:8080.
+```
