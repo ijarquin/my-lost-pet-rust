@@ -1,9 +1,9 @@
 use dioxus::prelude::*;
 
-use crate::components::carousel::Carousel;
 use crate::components::Pet;
+use crate::components::Carousel;
 use crate::components::Toggle;
-use crate::components::social_share::SocialShare;
+use crate::components::SocialShare;
 
 
 #[component]

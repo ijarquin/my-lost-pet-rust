@@ -5,8 +5,8 @@ pub mod pet;
 pub mod pet_card;
 pub mod toggle;
 pub mod social_share;
-
 pub use carousel::Carousel;
+
 pub use footer::Footer;
 pub use navbar::Route;
 pub use pet::Pet;
