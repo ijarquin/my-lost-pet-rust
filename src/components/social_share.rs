@@ -27,7 +27,7 @@ pub fn SocialShare() -> Element {
 
         if *show_icons.read() {
             div {
-                class: "tw-absolute tw-width tw-bottom tw-left-2 tw-z-10 tw-p-2 tw-bg-white/90 backdrop-blur-sm tw-rounded-lg tw-shadow-lg tw-flex tw-space-between",
+                class: "tw-absolute tw-flex tw-flex-row tw-items-center tw-justify-between tw-w-full",
                 a {
                     href: "#",
                     title: "Share on Facebook",
