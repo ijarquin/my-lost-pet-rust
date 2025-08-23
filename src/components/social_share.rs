@@ -27,11 +27,11 @@ pub fn SocialShare() -> Element {
 
         if *show_icons.read() {
             div {
-                class: "tw-absolute tw-flex tw-flex-row tw-items-center tw-justify-between tw-w-full",
+                class: "social-share tw-absolute tw-flex tw-items-center tw-gap-4",
                 a {
                     href: "#",
                     title: "Share on Facebook",
-                    class: "tw-text-gray-700 hover:tw-text-blue-600",
+                    class: "tw-text-white hover:tw-text-blue-600",
                     svg {
                         xmlns: "http://www.w3.org/2000/svg",
                         width: "24",
@@ -44,7 +44,7 @@ pub fn SocialShare() -> Element {
                 a {
                     href: "#",
                     title: "Share on X",
-                    class: "tw-text-gray-700 hover:tw-text-black",
+                    class: "tw-text-white hover:tw-text-black",
                     svg {
                         xmlns: "http://www.w3.org/2000/svg",
                         width: "24",
@@ -57,7 +57,7 @@ pub fn SocialShare() -> Element {
                 a {
                     href: "#",
                     title: "Share on Pinterest",
-                    class: "tw-text-gray-700 hover:tw-text-red-600",
+                    class: "tw-text-white hover:tw-text-red-600",
                     svg {
                         xmlns: "http://www.w3.org/2000/svg",
                         width: "24",
@@ -70,7 +70,7 @@ pub fn SocialShare() -> Element {
                 a {
                     href: "#",
                     title: "Share on Instagram",
-                    class: "tw-text-gray-700 hover:tw-text-pink-600",
+                    class: "tw-text-white hover:tw-text-pink-600",
                     svg {
                         xmlns: "http://www.w3.org/2000/svg",
                         width: "24",
