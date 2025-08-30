@@ -1,10 +1,9 @@
 use dioxus::prelude::*;
 
-use crate::components::Pet;
 use crate::components::Carousel;
-use crate::components::Toggle;
+use crate::components::Pet;
 use crate::components::SocialShare;
-
+use crate::components::Toggle;
 
 #[component]
 pub fn PetCard(pet: Pet) -> Element {
