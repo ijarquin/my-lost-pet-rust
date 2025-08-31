@@ -57,3 +57,15 @@ async fn icons_should_be_visible(world: &mut SocialShareWorld) {
         .unwrap();
     assert!(icons.is_displayed().await.unwrap());
 }
+
+#[then(regex = r"the social share icons should be hidden")]
+async fn icons_should_be_hidden(world: &mut SocialShareWorld) {
+    let icons = world
+        .driver
+        .as_ref()
+        .unwrap()
+        .find(By::Id("social-icons"))
+        .await
+        .unwrap();
+    assert!(!icons.is_displayed().await.unwrap());
+}
