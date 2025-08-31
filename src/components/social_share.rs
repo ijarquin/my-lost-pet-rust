@@ -3,11 +3,7 @@ use dioxus::prelude::*;
 #[component]
 pub fn SocialShare() -> Element {
     let mut show_icons = use_signal(|| false);
-    let display_class = if *show_icons.read() {
-        ""
-    } else {
-        "hidden"
-    };
+    let display_class = if *show_icons.read() { "" } else { "hidden" };
 
     rsx! {
         button {
@@ -30,7 +26,7 @@ pub fn SocialShare() -> Element {
                 circle { cx: "12", cy: "20", r: "2" },
             }
         }
-        
+
         div {
                 class: "social-share tw-absolute tw-flex tw-items-center tw-gap-4 {display_class}",
                 id: "social-icons",
@@ -87,7 +83,7 @@ pub fn SocialShare() -> Element {
                     }
                 }
             }
- 
+
 
     }
 }

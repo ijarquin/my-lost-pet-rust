@@ -36,12 +36,24 @@ async fn icons_hidden_by_default(world: &mut SocialShareWorld) {
 
 #[when(regex = r"the user clicks the social share button")]
 async fn click_social_share_button(world: &mut SocialShareWorld) {
-    let button = world.driver.as_ref().unwrap().find(By::Id("social-share-button")).await.unwrap();
+    let button = world
+        .driver
+        .as_ref()
+        .unwrap()
+        .find(By::Id("social-share-button"))
+        .await
+        .unwrap();
     button.click().await.unwrap();
 }
 
 #[then(regex = r"the social share icons should be visible")]
 async fn icons_should_be_visible(world: &mut SocialShareWorld) {
-    let icons = world.driver.as_ref().unwrap().find(By::Id("social-icons")).await.unwrap();
+    let icons = world
+        .driver
+        .as_ref()
+        .unwrap()
+        .find(By::Id("social-icons"))
+        .await
+        .unwrap();
     assert!(icons.is_displayed().await.unwrap());
 }
