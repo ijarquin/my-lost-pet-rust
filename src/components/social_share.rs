@@ -3,9 +3,15 @@ use dioxus::prelude::*;
 #[component]
 pub fn SocialShare() -> Element {
     let mut show_icons = use_signal(|| false);
+    let display_class = if *show_icons.read() {
+        ""
+    } else {
+        "hidden"
+    };
 
     rsx! {
         button {
+            id: "social-share-button",
             title: "Share",
             class: "tw-absolute tw-bottom-2 tw-right-2 tw-z-20 tw-p-2 tw-rounded-full hover:tw-bg-black/20 text-white",
             onclick: move |_| {
@@ -24,10 +30,10 @@ pub fn SocialShare() -> Element {
                 circle { cx: "12", cy: "20", r: "2" },
             }
         }
-
-        if *show_icons.read() {
-            div {
-                class: "social-share tw-absolute tw-flex tw-items-center tw-gap-4",
+        
+        div {
+                class: "social-share tw-absolute tw-flex tw-items-center tw-gap-4 {display_class}",
+                id: "social-icons",
                 a {
                     href: "#",
                     title: "Share on Facebook",
@@ -81,6 +87,7 @@ pub fn SocialShare() -> Element {
                     }
                 }
             }
-        }
+ 
+
     }
 }
