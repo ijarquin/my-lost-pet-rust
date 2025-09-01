@@ -3,6 +3,7 @@ mod steps;
 
 use colored::*;
 use steps::carousel::*;
+use steps::social_share::*;
 use steps::toggle::*; // Import the toggle steps
 
 use cucumber::World; // Import the World trait
@@ -19,6 +20,12 @@ async fn main() {
 
     CarouselWorld::cucumber()
         .run("tests/features/carousel.feature")
+        .await;
+
+    println!("-------------------------------------------------------------------------");
+
+    SocialShareWorld::cucumber()
+        .run("tests/features/social_share.feature")
         .await;
 
     println!("-------------------------------------------------------------------------");

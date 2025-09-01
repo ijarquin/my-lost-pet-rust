@@ -1,0 +1,4 @@
+# Ignore git history
+.git
+# Ignore build artifacts
+target/

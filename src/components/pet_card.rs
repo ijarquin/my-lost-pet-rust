@@ -1,7 +1,8 @@
 use dioxus::prelude::*;
 
-use crate::components::carousel::Carousel;
+use crate::components::Carousel;
 use crate::components::Pet;
+use crate::components::SocialShare;
 use crate::components::Toggle;
 
 #[component]
@@ -15,7 +16,11 @@ pub fn PetCard(pet: Pet) -> Element {
         div {
             key: pet.id,
             class: "pet-card",
-            Carousel { images: images }
+            div {
+                class: "tw-relative",
+                Carousel { images: images },
+                SocialShare {}
+            }
             Toggle { pet: pet.clone() }
         }
     }

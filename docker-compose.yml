@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # The Dioxus application service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: my-lost-pet-rust_app
+    ports:
+      - "8080:8080" # Dioxus dev server
+      - "3001:3001" # Dioxus hot-reload websocket
+    volumes:
+      # Mount the current directory into the container for hot-reloading
+      - .:/usr/src/app
+      # Use named volumes to cache dependencies and build artifacts
+      - cargo-cache:/usr/local/cargo/registry
+      - target-cache:/usr/src/app/target
+
+  # The Tailwind CSS watcher service
+  tailwind:
+    image: node:20-alpine
+    container_name: my-lost-pet-rust_tailwind
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    command: npx tailwindcss -i ./tailwind.css -o ./assets/tailwind.css --watch
+
+volumes:
+  cargo-cache:
+  target-cache:
