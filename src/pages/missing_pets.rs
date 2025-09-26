@@ -17,6 +17,8 @@ pub fn MissingPets() -> Element {
             age: "2 years",
             size: "Medium",
             breed: "Beagle",
+            latitude: 51.5074,
+            longitude: -0.1278,
         },
         Pet {
             id: 2,
@@ -26,6 +28,8 @@ pub fn MissingPets() -> Element {
             age: "3 years",
             size: "Small",
             breed: "Poodle",
+            latitude: 51.5114,
+            longitude: -0.1321,
         },
         Pet {
             id: 3,
@@ -35,6 +39,8 @@ pub fn MissingPets() -> Element {
             age: "4 years",
             size: "Large",
             breed: "German Shepherd",
+            latitude: 51.5050,
+            longitude: -0.1250,
         },
         Pet {
             id: 4,
@@ -44,6 +50,8 @@ pub fn MissingPets() -> Element {
             age: "5 years",
             size: "Medium",
             breed: "Beagle",
+            latitude: 51.5085,
+            longitude: -0.1299,
         },
     ];
 
