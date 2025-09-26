@@ -1,5 +1,6 @@
 use dioxus::prelude::*;
 
+use crate::components::Map;
 use crate::components::Pet;
 use crate::components::PetCard;
 
@@ -57,14 +58,24 @@ pub fn MissingPets() -> Element {
 
     rsx! {
         div {
-            id: "missing-pets",
-            class: "missing-pets",
-            {
-                pets.iter().map(|pet| {
-                    rsx! {
-                        PetCard {pet: pet.clone()}
-                    }
-                })
+            class: "container mx-auto px-4",
+            h1 {
+                class: "tw-text-4xl tw-font-bold tw-text-center tw-my-8 text-softBlue",
+                "Missing Pets"
+            }
+            Map {
+                pets: pets.clone()
+            }
+            div {
+                id: "missing-pets",
+                class: "missing-pets",
+                {
+                    pets.iter().map(|pet| {
+                        rsx! {
+                            PetCard {pet: pet.clone()}
+                        }
+                    })
+                }
             }
         }
     }
