@@ -12,7 +12,7 @@ title = "my-lost-pet-rust"
 style = ["/assets/tailwind.css"]
 
 # Additional JavaScript files
-script = ["https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"]
+script = []
 
 [web.resource.dev]
 
