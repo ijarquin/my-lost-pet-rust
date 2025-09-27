@@ -1,5 +1,5 @@
 function initMap() {
-  const mapCanvas = document.getElementById('gmap_canvas');
+  const mapCanvas = document.getElementById("gmap_canvas");
   if (!mapCanvas) {
     console.error("Map canvas not found!");
     return;
@@ -29,7 +29,7 @@ function initMap() {
   }
 
   const bounds = new google.maps.LatLngBounds();
-  locations.forEach(loc => {
+  locations.forEach((loc) => {
     bounds.extend(new google.maps.LatLng(loc.lat, loc.lng));
   });
 
@@ -38,10 +38,12 @@ function initMap() {
   });
   map.fitBounds(bounds);
 
-  locations.forEach(location => {
+  locations.forEach((location) => {
     new google.maps.Marker({
       position: { lat: location.lat, lng: location.lng },
       map: map,
     });
   });
 }
+
+window.initMap = initMap;
