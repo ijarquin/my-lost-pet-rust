@@ -29,7 +29,7 @@ pub fn Map(props: MapProps) -> Element {
     rsx! {
         div {
             id: "gmap_canvas",
-            class: "map-container tw-my-4 tw-rounded-lg tw-shadow-md",
+            class: "map-container tw-w-full tw-my-4 tw-rounded-lg tw-shadow-md",
             "data-locations": "{locations_json}",
         }
     }
