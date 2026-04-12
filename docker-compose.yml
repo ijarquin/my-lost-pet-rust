@@ -1,29 +1,41 @@
-version: '3.8'
-
 services:
-  # The Dioxus application service
+  # ── Production (docker compose up --profile prod) ───────────────────────────
   app:
+    profiles: [prod]
     build:
       context: .
       dockerfile: Dockerfile
     container_name: my-lost-pet-rust_app
     ports:
+      - "8080:8080"
+
+  # ── Development (docker compose up --profile dev) ────────────────────────────
+  app-dev:
+    profiles: [dev]
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: my-lost-pet-rust_app_dev
+    ports:
       - "8080:8080" # Dioxus dev server
-      - "3001:3001" # Dioxus hot-reload websocket
+      - "3001:3001" # Hot-reload websocket
     volumes:
-      # Mount the current directory into the container for hot-reloading
+      # Mount source so changes are picked up without rebuilding the image
       - .:/usr/src/app
-      # Use named volumes to cache dependencies and build artifacts
+      # Persist compiled artefacts and downloaded crates across restarts
       - cargo-cache:/usr/local/cargo/registry
       - target-cache:/usr/src/app/target
+    environment:
+      - RUST_LOG=info
 
-  # The Tailwind CSS watcher service
-  tailwind:
+  tailwind-dev:
+    profiles: [dev]
     image: node:20-alpine
-    container_name: my-lost-pet-rust_tailwind
+    container_name: my-lost-pet-rust_tailwind_dev
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
+    # Watch for changes and rebuild assets/tailwind.css in-place
     command: npx tailwindcss -i ./tailwind.css -o ./assets/tailwind.css --watch
 
 volumes:
