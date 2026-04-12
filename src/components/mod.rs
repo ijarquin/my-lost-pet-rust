@@ -1,5 +1,6 @@
 pub mod carousel;
 pub mod footer;
+pub mod map;
 pub mod navbar;
 pub mod pet;
 pub mod pet_card;
@@ -8,6 +9,7 @@ pub mod toggle;
 pub use carousel::Carousel;
 
 pub use footer::Footer;
+pub use map::Map;
 pub use navbar::Route;
 pub use pet::Pet;
 pub use pet_card::PetCard;

@@ -9,4 +9,6 @@ pub struct Pet {
     pub age: &'static str,
     pub size: &'static str,
     pub breed: &'static str,
+    pub latitude: f64,
+    pub longitude: f64,
 }
