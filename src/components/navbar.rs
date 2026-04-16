@@ -29,7 +29,7 @@ pub fn Navbar() -> Element {
                 }
             }
             div {
-                class: "items-center space-x-10 text-white md:flex",
+                class: "nav-links items-center space-x-10 text-white md:flex",
                 Link {
                     to: "#",
                     "Rescue Centers"

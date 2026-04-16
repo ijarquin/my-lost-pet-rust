@@ -5,8 +5,8 @@
 
 .missing-pets {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns of equal width */
-    grid-template-rows: repeat(2, auto);    /* Creates 2 rows with automatic height */                            /* Adds space between grid items (optional) */
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
@@ -237,4 +237,42 @@ body {
     padding-left: 20px;
     padding-right: 20px;
     opacity: 0.8;
+}
+
+/* ── Responsive breakpoints ─────────────────────────────── */
+
+@media (max-width: 767px) {
+    .missing-pets {
+        grid-template-columns: 1fr;
+    }
+
+    .pet-card {
+        margin: 16px;
+    }
+
+    .pet-card img {
+        height: 250px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .home {
+        padding: 12px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .missing-pets {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pet-card {
+        margin: 24px;
+    }
 }
