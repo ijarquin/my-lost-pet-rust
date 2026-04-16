@@ -7,9 +7,11 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
+    width: 100%;
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
+    box-sizing: border-box;
 }
 
 .pet-card {
