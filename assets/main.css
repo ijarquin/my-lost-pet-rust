@@ -164,9 +164,8 @@ footer {
     color: white;
     text-align: center;
     padding: 20px;
-    position: relative;
-    bottom: 0;
     width: 100%;
+    margin-top: auto;
 }
 
 .hero-title {
@@ -189,6 +188,12 @@ body {
     margin: 0;
 }
 
+#main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 #hero {
     margin: 0;
     display: flex;
@@ -200,15 +205,15 @@ body {
     font-size: x-large;
     color: #1f1f1f;
     flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
 #links a {
     background-color: hsl(231 69% 60%);
     color: white;
     text-decoration: none;
-    margin: 20px;
-    margin-left: 0px;
-    margin-bottom: 0px;
     border: hsl(231 69% 60%) 1px solid;
     border-radius: 5px;
     padding: 20px;
@@ -264,6 +269,27 @@ body {
 
     .home {
         padding: 12px;
+    }
+
+    .hero-section {
+        flex: 1;
+        flex-direction: column;
+    }
+
+    .hero-content {
+        width: 100% !important;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-img {
+        display: none;
+    }
+
+    #links {
+        margin-top: auto;
+        padding-bottom: 24px;
     }
 }
 

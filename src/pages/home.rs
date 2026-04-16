@@ -13,13 +13,13 @@ pub fn Home() -> Element {
 pub fn Hero() -> Element {
     rsx! {
         div {
-            class: "home tw-flex tw-flex-row tw-p-6",
+            class: "home hero-section tw-flex tw-flex-row tw-p-6",
             div {
-                class: "tw-w-1/2",
+                class: "hero-content tw-w-1/2",
                 id: "hero",
                 h1 { class: "hero-title", id: "subtitle", "A place to find your loving pets" }
                 p {
-                    class: "hero-description tw-w-1/2",
+                    class: "hero-description",
                     id: "description",
                     "Find your loving pets, you can filter by regions, time they were lost. We hope you can find your pets as soon as possible." }
                 div {
@@ -38,7 +38,7 @@ pub fn Hero() -> Element {
             }
             img {
                 id: "image",
-                class: "hero-image tw-w-1/2",
+                class: "hero-image hero-img tw-w-1/2",
                 src: HERO_IMAGE
             }
         }
