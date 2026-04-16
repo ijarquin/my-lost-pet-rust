@@ -5,7 +5,7 @@ use crate::components::PetCard;
 
 #[component]
 pub fn AdoptionPets() -> Element {
-    let pets = vec![
+    let pets = [
         Pet {
             id: 1,
             name: "Xira",
